@@ -28,7 +28,7 @@ def get_list_of_repos(root_folder:str):
         else:
             test = True
             result.add(p)
-    print(f'\n{result}')
+    # print(f'\n{result}')
     return result
 
 
@@ -45,9 +45,7 @@ def commit_repo(path_to_git_project:str, commit_message:str='"automatic commit"'
     git_commit_command = f'git commit -m {commit_message}'
 
     result = [shell_command(cd_command)]
-    print(result)
-    result = [shell_command(git_add_command)]
-    print(result)
+    result.append(shell_command(git_add_command))
     result.append(shell_command(git_commit_command))
     print(result)
 
