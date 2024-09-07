@@ -52,7 +52,7 @@ def commit_repo(path_to_git_project:str, commit_message:str='"automatic commit"'
     result = [shell_command(cd_command)]
     result.append(shell_command(git_add_command))
     result.append(shell_command(git_commit_command))
-    print(i for i in result)
+    print(str(i) for i in result)
 
     return result
 
