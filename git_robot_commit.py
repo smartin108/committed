@@ -24,7 +24,7 @@ def get_list_of_repos(root_folder:str):
     for p, d, _ in os.walk(root_folder):
         if '.git' in p:
             test = False
-            print(f'rejected: {(p,d)}')
+            # print(f'rejected: {(p,d)}')
         else:
             test = True
             result.add(p)
