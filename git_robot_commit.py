@@ -9,7 +9,7 @@ def get_list_of_root_folders():
     """ return catalog of enumerated git repo roots
     """
     # return [r'C:\Users\Z40\Documents\git', r'C:\Users\Z40\Documents\batch',r"C:\Users\Z40\AppData\Roaming\REAPER\Effects\smartin"]
-    return[r"C:\Users\Z40\Documents\git\AudioAnalysis"]
+    return[r"C:\Users\Z40\Documents\git\audiodabble"]
 
 
 def filter_repo_subpaths():
