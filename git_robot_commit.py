@@ -4,6 +4,10 @@
 import os
 import subprocess
 import json
+import clsLogger
+
+
+lo = clsLogger.Interface(logname='subprocess', filename='git_robot.log', level='DEBUG').start()
 
 
 def read_repo_locations():
@@ -72,3 +76,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    lo.prune(threshold=10000, keep=8000)
