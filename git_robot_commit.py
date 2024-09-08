@@ -49,7 +49,7 @@ def commit_repo(path_to_git_project:str, commit_message:str='"automatic commit"'
     git_status_command = 'git status'
     git_add_command = 'git add .'
     git_commit_command = f'git commit -m {commit_message}'
-    git_log_command = 'git log --oneline'
+    git_log_command = 'git log'
 
     result = [shell_command(cd_command)]
     result.append(shell_command(git_status_command))
