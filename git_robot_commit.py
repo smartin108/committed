@@ -3,13 +3,24 @@
 
 import os
 import subprocess
+import json
+
+
+def read_repo_locations():
+    locations_file = './repo_location.json'
+    with open(locations_file, 'r') as f:
+        d = json.load(f)
+    return d
 
 
 def get_list_of_root_folders():
     """ return catalog of enumerated git repo roots
     """
-    return [r'C:\Users\Z40\Documents']
+    # return [r'C:\Users\Z40\Documents']
     # return [r'C:\Users\Z40\Documents\git', r'C:\Users\Z40\Documents\batch',r"C:\Users\Z40\AppData\Roaming\REAPER\Effects\smartin"]
+    d = read_repo_locations()
+    print(d)
+    return(d['locations'])
 
 
 def get_list_of_repos(root_folder:str):
