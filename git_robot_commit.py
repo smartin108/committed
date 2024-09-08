@@ -25,6 +25,7 @@ def get_list_of_root_folders():
     # return [r'C:\Users\Z40\Documents\git', r'C:\Users\Z40\Documents\batch',r"C:\Users\Z40\AppData\Roaming\REAPER\Effects\smartin"]
     d = read_repo_locations()
     print(d)
+    lo.debug(d)
     return(d['locations'])
 
 
@@ -58,20 +59,22 @@ def commit_repo(path_to_git_project:str, commit_message:str='"automatic commit"'
     result = [shell_command(git_add_command)]
     result.append(shell_command(git_commit_command))
     for i in result:
-        print(i)
+        # print(i)
+        lo.debug(i)
 
     return result
 
 
 
 def main():
-    print('hello, world!')
+    # print('hello, world!')
     root_folders = get_list_of_root_folders()
     for path_item in root_folders:
         repos = get_list_of_repos(path_item)
         if repos:
             for r in repos:
-                print(r)
+                # print(r)
+                lo.debug(r)
                 commit_repo(r)
 
 
