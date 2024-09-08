@@ -62,7 +62,8 @@ def commit_repo(path_to_git_project:str, commit_message:str='"automatic commit"'
     result.append(shell_command(git_push_command))
     for i in result:
         # print(i)
-        lo.info(i)
+        # lo.info(i)
+        pass
 
     return result
 
@@ -76,7 +77,7 @@ def main():
         if repos:
             for r in repos:
                 # print(r)
-                lo.debug(r)
+                lo.info(r)
                 commit_repo(r)
     li.prune(threshold=10000, keep=8000)
 
