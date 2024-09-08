@@ -47,14 +47,21 @@ class Interface:
                 datefmt='%Y-%m-%d %H:%M:%S',
                 format='%(asctime)s %(levelname)s line %(lineno)d: %(message)s',
                 level=logging.getLevelName(self._level))
-            console_handler = logging.StreamHandler()
-            console_handler.setLevel(logging.DEBUG)
-            file_handler = logging.FileHandler(self._filename)
-            file_handler.setLevel(logging.DEBUG)
 
 
     def start(self):
-        return logging.getLogger(self._name)
+        lo = logging.getLogger(self._name)
+        console_handler = logging.StreamHandler()
+        console_handler.setLevel(logging.DEBUG)
+        file_handler = logging.FileHandler(self._filename)
+        file_handler.setLevel(logging.DEBUG)
+        console_format = logging.Formatter('%(name)s - %(levelname)s - %(message)s')
+        file_format = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        console_handler.setFormatter(console_format)
+        file_handler.setFormatter(file_format)
+        lo.addHandler(console_handler)
+        lo.addHandler(file_handler)
+        return lo
 
 
     def prune(self, **kw):
