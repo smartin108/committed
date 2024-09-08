@@ -15,14 +15,13 @@ def get_list_of_repos(root_folder:str):
     """ return a list of paths at and below <root_folder> that contain a git repo
     """
     result = set()
-    for p, d, f in os.walk(root_folder):
+    for p, d, _ in os.walk(root_folder):
         if '.git' in p:
-            test = False
+            pass
         elif '.git' in d:
-            test = True
             result.add(p)
         else:
-            test = False
+            pass
     return result
 
 
