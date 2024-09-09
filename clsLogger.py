@@ -52,9 +52,9 @@ class Interface:
     def start(self):
         lo = logging.getLogger(self._name)
         console_handler = logging.StreamHandler()
-        console_handler.setLevel(logging.DEBUG)
+        console_handler.setLevel(getattr(logging, self._level.upper()))
         file_handler = logging.FileHandler(self._filename)
-        file_handler.setLevel(logging.DEBUG)
+        file_handler.setLevel(getattr(logging, self._level.upper()))
         console_format = logging.Formatter('%(name)s - %(levelname)s - %(message)s')
         file_format = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
         console_handler.setFormatter(console_format)
