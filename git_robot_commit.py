@@ -7,7 +7,7 @@ import json
 import clsLogger
 
 
-li = clsLogger.Interface(logname='subprocess', filename='git_robot.log', level='INFO')
+li = clsLogger.Interface(logname='subprocess', filename='git_robot.log', level='DEBUG')
 lo = li.start()
 
 
